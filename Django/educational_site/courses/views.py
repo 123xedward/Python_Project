@@ -4,5 +4,4 @@ from .models import Course
 
 def courses(request):
     courses = Course.objects.all()
-    course_list = "- ".join([str(course) for course in courses])
-    return HttpResponse(course_list)
+    return render(request,'courses/course_list.html', {'courses':courses})
